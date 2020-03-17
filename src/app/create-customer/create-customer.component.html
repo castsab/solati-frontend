@@ -1,0 +1,78 @@
+<div class="container  mt-2">
+
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item active" aria-current="page">Crear cliente</li>
+    </ol>
+  </nav>
+
+  <form class="myform" [formGroup]="myform">
+
+    <div class="form-row mt-2">
+      <div class="col">
+        <select formControlName="documentType" class="form-control">
+          <option value="CC">Cédula de ciudadanía</option>
+          <option value="TI">Tarjeta de identidad</option>
+        </select>
+
+        <div *ngIf="documentType.invalid && documentType.dirty || formValid==true">
+          <span *ngIf="documentType.errors?.required">Este campo es requerido</span>
+        </div>
+      </div>
+
+      <div class="col">
+        <input formControlName="documentNumber" type="text" class="form-control"
+          placeholder="Numero de documento">
+        <div *ngIf="documentNumber.invalid && documentNumber.dirty || formValid==true">
+          <span *ngIf="documentNumber.errors?.required">Este campo es requerido</span>
+        </div>
+        <div *ngIf="documentNumber.invalid && documentNumber.dirty || formValid==true">
+          <span *ngIf="documentNumber.errors?.pattern">Solo numeros</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row mt-2">
+      <div class="col">
+        <input formControlName="name" type="text" class="form-control" id="a" placeholder="Nombre">
+
+        <div *ngIf="name.invalid && name.dirty || formValid==true">
+          <span *ngIf="name.errors?.required">Este campo es requerido</span>
+        </div>
+      </div>
+
+      <div class="col">
+        <input formControlName="lastName" type="text" class="form-control" id="a" placeholder="Apellidos">
+
+        <div *ngIf="lastName.invalid && lastName.dirty || formValid==true">
+          <span *ngIf="lastName.errors?.required">Este campo es requerido</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row mt-2">
+      <div class="col">
+        <input formControlName="dateBirth" type="text" class="form-control" id="a" placeholder="Fecha de nacimiento">
+
+        <div *ngIf="dateBirth.invalid && dateBirth.dirty || formValid==true">
+          <span *ngIf="dateBirth.errors?.required">Este campo es requerido</span>
+        </div>
+      </div>
+
+      <div class="col">
+        <select formControlName="maritalStatus" class="form-control">
+          <option value="C">Casado</option>
+          <option value="S">Soltero</option>
+          <option value="UL">Unión libre</option>
+        </select>
+
+        <div *ngIf="maritalStatus.invalid && maritalStatus.dirty || formValid==true">
+          <span *ngIf="maritalStatus.errors?.required">Este campo es requerido</span>
+        </div>
+      </div>
+    </div>
+
+    <button (click)="saveCustomer();" type="submit" class="btn btn-primary  mt-2">Guardar</button>
+
+  </form>
+</div>

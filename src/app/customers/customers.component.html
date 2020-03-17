@@ -1,0 +1,46 @@
+<div class="container-fluid">
+
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">Clientes</li>
+      </ol>
+    </nav>
+  
+    <div class="row">
+  
+      <div class="col-sm-12 form-group text-right">
+        <button type="button" class="btn btn-success btn-sm" [routerLink]="'/create-customer'">Registrar cliente</button>
+      </div>
+  
+      <div class="col-sm-12">
+  
+        <table class="table table-bordered table-sm">
+  
+          <thead class="thead-dark">
+            <tr>
+              <th>Numero de documento</th>
+              <th>Nombre</th>
+              <th>Apellido</th>
+              <th>Fecha de nacimiento</th>
+            </tr>
+          </thead>
+  
+          <tbody *ngFor="let customer of customersArray">
+  
+            <tr>
+              <td>{{customer.document_number}}</td>
+              <td>{{customer.diego}}</td>
+              <td>{{customer.last_name}}</td>
+              <td>{{customer.date_birth}}</td>
+            </tr>
+  
+          </tbody>
+  
+        </table>
+  
+        </div>
+  
+    </div>
+  </div>
+  
+
